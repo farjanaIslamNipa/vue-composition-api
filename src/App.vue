@@ -1,132 +1,50 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { FreeMode} from 'swiper';
-import { ref } from 'vue';
-const modules = [FreeMode];
 
-const swiperBtn = ref(true)
-
-const onSwiper = (swiper) => {
-  swiperBtn.value = swiper
-        console.log(swiperBtn.value, 'true');
-      };
-const onSlideChange = () => {
-  console.log('slide change');
-};
-
-const slideNext = () => {
-  swiperBtn.value.slideTo(swiperBtn.value.realIndex++)
-}
 </script>
 <template>
-    <div class="custom-container pt-10">
-      <div class="flex justify-between items-end mb-8">
-        <div>
-          <h2 class="text-[57px] text-dark font-semibold leading-64px">We got featured</h2>
-        </div>
-        <div>
-          <div class="flex gap-8 items-center">
-            <button class="h-[60px] w-[60px] flex justify-center items-center border border-[#DBDBDB] rounded-full">
-              <img class="h-[20px] w-[21px]" src="./assets/images/svg/arrow-prev.svg" alt="Previous Arrow">
-            </button>
-            <button class="h-[60px] w-[60px] flex justify-center items-center border border-[#DBDBDB] rounded-full">
-              <img class="h-[20px] w-[21px]" src="./assets/images/svg/arrow-next.svg" alt="Previous Arrow">
-            </button>
+    <div class="relative">
+      <div class="custom-container py-10">
+        <div class="grid grid-cols-12">
+        <div class="col-span-12 lg:col-span-6 bg-corporate rounded-none lg:rounded-[32px] lg:rounded-tr-none lg:rounded-br-none relative order-2 lg:order-1">
+          <div class="hidden lg:block">
+            <div class="curve">
+              <svg height="100%" viewBox="0 0 144 572" fill="none" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 571.995C13.9853 561.628 27.2718 550.188 39.73 537.73C106.493 470.967 144 380.417 144 286C144 191.583 106.493 101.033 39.73 34.27C27.2718 21.8118 13.9853 10.3723 0 0.00514693V571.995Z" fill="#f04935"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="block lg:hidden">
+            <div class="curve-mobile">
+              <svg width="100%" viewBox="0 0 375 33" fill="none" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M375 31.6325V33H0V31.2873C59.6132 10.7621 122.751 -9.39742e-05 187 -0.000100361C251.608 -0.000106784 315.093 10.8828 375 31.6325Z" fill="#f04935"></path>
+                </svg>
+            </div>
+          </div>
+          <!-- <div class="absolute right-[-106px]">
+            <img src="./assets/images/svg/yellow-ellipse.svg" alt="Jatri Career">
+          </div> -->
+          <!-- <div class="absolute bottom-0 left-0">
+            <img class="rounded-bl-[32px]" src="./assets/images/svg/red-ellipse.svg" alt="Jatri Career">
+          </div> -->
+          <div class="flex items-center justify-center text-white h-full mx-10 lg:mx-0 pl-0 lg:pl-10 xl:pl-20 py-20 lg:py-0">
+          <div class="relative">
+            <h3 class="text-[40px] xl:text-[45px] font-semibold leading-[52px] mb-6">Join the winning team!</h3>
+            <p class="text-[16px] leading-6 font-medium">Join our exciting team in the quest of empowering Bangladesh to travel better!</p>
+            <div class="mt-12">
+              <router-link class="bg-white text-corporate text-[16px] font-medium h-[46px] w-[145px] flex justify-center items-center rounded-full" to="#">Join Jatri</router-link>
+            </div>
           </div>
         </div>
-      </div>
-        <div class="mb-0 lg:mb-[48px] counter-section">
-
-            <div class="full-width">
-              <swiper
-                :breakpoints="{
-                  320: {
-                    slidesPerView: 1
-                  },
-                  640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                  },
-                  1024: {
-                    slidesPerView: 3.5,
-                    spaceBetween: 30
-                  }
-                }"
-                :spaceBetween="30"
-                :freeMode="true"
-                :modules="modules"
-                @swiper="onSwiper"
-                @slideChange="onSlideChange"
-                class="mySwiper"
-              >
-              <button @click="slideNext()">Slide to the next slide</button>
-                <swiper-slide>
-                  <div class="flex flex-col justify-between min-h-[500px] bg-[#FEF2F0] rounded-2xl py-6 px-6">
-                    <div>
-                      <div class="flex justify-center mb-4">
-                        <img class="rounded-2xl" src="./assets/images/svg/slider-img-1.svg" alt="Feature Slider">
-                      </div>
-                      <h3 class="text-dark font-medium text-2xl leading-8">Bangladeshi transport app secures $1.2m to fuel national expansion</h3>
-                    </div>
-                    <div>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero optio debitis incidunt? Dignissimos dolores molestiae odio officiis, delectus incidunt eaque vitae voluptatum, praesentium quis numquam veniam, nisi aliquid et autem.
-                    </div>
-                  </div>
-                </swiper-slide>
-                <swiper-slide>
-                  <div class="flex justify-center">
-                    <div>
-                      <div class="min-h-[120px] flex justify-center items-end">
-                        <img src="./assets/images/svg/counter-2.svg"  alt="Counter" class="" >
-                      </div>
-                      <div class="mt-4">
-                        <div class="text-center relative z-20">
-                          <p class="text-dark text-[28px] lg:text-[38px] xl:text-[45px] font-bold mb-[2px] xl:mb-[8px] leading-[36px] lg:leading-[52px]">100 millions+</p>
-                          <p class="text-body text-[16px] xl:text-[20px] font-medium leading-[24px] lg:leading-[28px]">Tickets served</p>
-                        </div>
-                        <img src="./assets/images/svg/small-device-gray-shape-bg.svg" class="small-device-gray-shape-img z-10" alt="">
-                      </div>
-                    </div>
-                  </div>
-                </swiper-slide>
-                <swiper-slide>
-                  <div class="flex justify-center">
-                    <div>
-                      <div class="min-h-[120px] flex justify-center items-end">
-                        <img src="./assets/images/svg/counter-3.svg"  alt="Counter" class="" >
-                      </div>
-                      <div class="mt-4">
-                        <div class="text-center relative z-20">
-                          <p class="text-dark text-[28px] lg:text-[38px] xl:text-[45px] font-bold mb-[2px] xl:mb-[8px] leading-[36px] lg:leading-[52px]">100K+</p>
-                          <p class="text-body text-[16px] xl:text-[20px] font-medium leading-[24px] lg:leading-[28px]">Rental partners</p>
-                        </div>
-                        <img src="./assets/images/svg/small-device-gray-shape-bg.svg" class="small-device-gray-shape-img z-10" alt="">
-                      </div>
-                    </div>
-                  </div>
-                </swiper-slide>
-                <swiper-slide>
-                  <div class="flex justify-center">
-                    <div>
-                      <div class="min-h-[120px] flex justify-center items-end">
-                        <img src="./assets/images/svg/counter-3.svg"  alt="Counter" class="" >
-                      </div>
-                      <div class="mt-4">
-                        <div class="text-center relative z-20">
-                          <p class="text-dark text-[28px] lg:text-[38px] xl:text-[45px] font-bold mb-[2px] xl:mb-[8px] leading-[36px] lg:leading-[52px]">100K+</p>
-                          <p class="text-body text-[16px] xl:text-[20px] font-medium leading-[24px] lg:leading-[28px]">Rental partners</p>
-                        </div>
-                        <img src="./assets/images/svg/small-device-gray-shape-bg.svg" class="small-device-gray-shape-img z-10" alt="">
-                      </div>
-                    </div>
-                  </div>
-                </swiper-slide>
-              </swiper>
-            </div>
         </div>
+
+        <div class="col-span-12 lg:col-span-6 career-img order-1 lg:order-2">
+          <img class="hidden lg:block rounded-[32px] rounded-tl-none rounded-bl-none" src="./assets/images/svg/carrer-banner.svg" alt="Jatri Career">
+          <img class="block lg:hidden" src="./assets/images/svg/career-banner.jpg" alt="Jatri Career">
+        </div>
+        </div>
+      </div>
+
+      <!-- <div class="thing"></div> -->
     </div>
 </template>
 
@@ -134,28 +52,62 @@ const slideNext = () => {
 * {
     font-family: 'Inter', sans-serif;
 }
+.career-img{
+  height: 440px !important;
+  width: auto;
+}
+.career-img img{
+  height: 100% !important;
+  width: 100%;
+  object-fit: cover;
+}
+.curve{
+  display: block;
+  height: 100%;
+  width: auto;
+  position: absolute;
+  right: 1px;
+  top: 0;
+  -webkit-transform: translateX(100%);
+}
+.curve-mobile{
+  height: auto;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    -webkit-transform: translateY(-99%);
+}
+.thing {
+  width: 400px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thing::before,
+.thing::after {
+  content: '';
+  z-index: 1;  
+  position: absolute;
+}
+
+/* .thing::before {
+  border-top: 2px solid black;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;  
+} */
+
+.thing::after {
+  border-radius: 60%;
+  left: 20px;
+  right: 20px;
+  height: 300px;
+  top: -234px;
+  background-color: red;
+}
 
 
-.gray-shape-bg{
-    margin-top: -55px;
-}
-.small-device-gray-shape{
-  margin-top: -40px;
-}
-.small-device-gray-shape-img{
-  height: 75px !important;
-  width: 390px !important;
-  margin-top: -40px;
-}
-
-@media(max-width:1280px){
-  .gray-shape-bg{
-    margin-top: -45px;
-  }
-}
-@media(max-width:1280px){
-  .gray-shape-bg{
-    margin-top: -45px;
-  }
-}
 </style>
