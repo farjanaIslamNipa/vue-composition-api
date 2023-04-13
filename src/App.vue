@@ -1,91 +1,265 @@
-<script setup>
-
-</script>
 <template>
-    <div class="relative">
-      <div class="custom-container py-10">
-        <div class="grid grid-cols-12">
-        <div class="col-span-12 lg:col-span-6 bg-corporate rounded-none lg:rounded-[32px] lg:rounded-tr-none lg:rounded-br-none relative order-2 lg:order-1 -mt-[76px] md:-mt-[30px] lg:-mt-0">
-          <div class="hidden lg:block">
-            <div class="curve">
-              <svg height="100%" viewBox="0 0 144 572" fill="none" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 571.995C13.9853 561.628 27.2718 550.188 39.73 537.73C106.493 470.967 144 380.417 144 286C144 191.583 106.493 101.033 39.73 34.27C27.2718 21.8118 13.9853 10.3723 0 0.00514693V571.995Z" fill="#f04935"></path>
-              </svg>
-            </div>
+ <section class="custom-container">
+        <h3 class="primary-heading text-center">Our products</h3>
+     <div class="mt-10 mb-14"> 
+        <input type="radio" id="radio1" name="radio1" value="0" v-model="activeTab">
+        <input type="radio" id="radio2" name="radio2" value="1" v-model="activeTab">
+        <input type="radio" id="radio3" name="radio3" value="2" v-model="activeTab">
+        <div class="radio_wrap_container">
+          <div class="radio_wrap" :style="{'--i': activeTab}">
+            <label @click="switchTab(0, true)" for="radio1" data-i="0">User</label>
+            <label @click="switchTab(1, true)" for="radio2" data-i="1">Partner</label>
+            <label @click="switchTab(2, true)" for="radio3" data-i="2">Business Solutions</label>
           </div>
-          <div class="block lg:hidden">
-
-          <div class="curve-mobile">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="" preserveAspectRatio="none" viewBox="0 0 1440 804">
-                <g mask="url(&quot;#SvgjsMask1030&quot;)" fill="none">
-                    
-                    <path d="M 0,748 C 144,703 432,531.8 720,523 C 1008,514.2 1296,667.8 1440,704L1440 804L0 804z" fill="#f04935"></path>
-                </g>
-            </svg>
-            </div>
-          </div>
-          <div class="absolute right-[-106px] hidden lg:block">
-            <img src="./assets/images/svg/yellow-ellipse.svg" alt="Jatri Career">
-          </div>
-          <div class="absolute top-[-58px] left-0 block lg:hidden">
-            <img src="./assets/images/svg/small-device-yellow-curve.svg" alt="Jatri Career">
-          </div>
-          <div class="absolute bottom-0 left-0 hidden lg:block">
-            <img class="rounded-bl-[32px]" src="./assets/images/svg/red-ellipse.svg" alt="Jatri Career">
-          </div>
-          <div class="absolute bottom-0 right-0 block lg:hidden">
-            <img class="rounded-bl-[32px]" src="./assets/images/svg/small-device-bottom-ellipse.svg" alt="Jatri Career">
-          </div>
-          <div class="flex items-center justify-center text-white h-full mx-6 lg:mx-0 pl-0 lg:pl-10 xl:pl-20 pt-5 lg:pt-0 pb-14 lg:pb-0">
-          <div class="relative">
-            <h3 class="text-2xl md:text-[40px] xl:text-[45px] font-semibold leading-8 lg:leading-[52px] mb-4 lg:mb-6">Join the winning team!</h3>
-            <p class="text-sm lg:text-[16px] leading-5 lg:leading-6 font-medium">Join our exciting team in the quest of empowering Bangladesh to travel better!</p>
-            <div class="mt-6 lg:mt-12">
-              <router-link class="bg-white text-corporate text-sm lg:text-[16px] font-medium h-[40px] lg:h-[46px] w-[133px] lg:w-[145px] flex justify-center items-center rounded-full" to="#">Join Jatri</router-link>
-            </div>
-          </div>
-        </div>
         </div>
 
-        <div class="col-span-12 lg:col-span-6 career-img order-1 lg:order-2">
-          <img class="hidden lg:block rounded-[32px] rounded-tl-none rounded-bl-none" src="./assets/images/svg/carrer-banner.svg" alt="Jatri Career">
-          <img class="block lg:hidden" src="./assets/images/svg/career-banner.jpg" alt="Jatri Career">
+        <div class="panels">
+            <div class="panel bg-primary" @mouseover="switchTab(0, true)" id="panel-one">
+                <div class="panel-content">
+                    <h5 class="title">Users</h5>
+                    <p class="description">Our plethora of services makes the users life convenien</p>
+                </div>
+
+                <div class="panel-hidden-content bg-primary">
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel bg-info" @mouseover="switchTab(1, true)" id="panel-two">
+                <div class="panel-content">
+                    <h5 class="title">Partner</h5>
+                    <p class="description">We empower car drivers and owners to push their business to the next level</p>
+                </div>
+
+                <div class="panel-hidden-content">
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel bg-success" @mouseover="switchTab(2, true)" id="panel-three">
+                <div class="panel-content">
+                    <h5 class="title">Business solutions</h5>
+                    <p class="description">Our products and services enables organizations to run their businesses seamlessly</p>
+                </div>
+
+                <div class="panel-hidden-content">
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img src="./assets/images/svg/product-jatri-logo.svg" alt="jatri logo">
+                        <p class="text-white text-2xl font-medium">Jatri Rental</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
-    </div>
+    </div>  
+    </section>
 </template>
 
+<script setup>
+
+import {onMounted, onUnmounted, ref} from "vue";
+
+const activeTab = ref(0)
+const autoSlideInterVal = ref(null)
+var round = 0;
+const switchTab = (n, click=false) => {
+  if(n === 2 &&  click) {
+    round = 2
+  } else {
+    round = n
+  }
+  clearInterval(autoSlideInterVal.value)
+  activeTab.value = n
+  let nodeElement = document.getElementsByClassName('radio_wrap')[0]
+  let tabPane = document.querySelector('.radio_wrap')
+  let totalWidth = 0;
+  for (let i = 0; i < n; i++) {
+    totalWidth += nodeElement.children[i].clientWidth
+  }
+  let tabWith = nodeElement.children[n].clientWidth
+  tabPane.style.setProperty("--left", `${totalWidth}px`);
+  tabPane.style.setProperty("--tabWidth", `${tabWith}px`);
+  startInterval()
+}
+
+onMounted(() => {
+  let box = document.querySelector('.radio_wrap')
+  box.style.setProperty("--left", `0px`);
+  box.style.setProperty("--tabWidth", `84px`);
+
+  // startInterval()
+})
+
+const startInterval = () => {
+  autoSlideInterVal.value = setInterval( () => {
+    round += 1
+    if(round === 3) {
+      round = 0
+    }
+    console.log(round)
+    switchTab(round)
+  }, 2000)
+
+}
+onUnmounted(() => {
+  clearInterval(autoSlideInterVal.value)
+})
+
+</script>
+
 <style scoped>
-* {
-    font-family: 'Inter', sans-serif;
+.radio_wrap_container {
+  background: #FDE5E2;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: max-content;
+  padding: 4px 4px;
+  border-radius: 2rem;
 }
-.career-img{
-  height: 440px !important;
-  width: auto;
+.radio_wrap {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  --i: 0;
+  display: flex;
+  justify-content: center;
 }
-.career-img img{
-  height: 100% !important;
-  width: 100%;
-  object-fit: cover;
-}
-.curve{
-  display: block;
-  height: 100%;
-  width: auto;
+
+input {
   position: absolute;
-  right: 1px;
-  top: 0;
-  -webkit-transform: translateX(100%);
-}
-.curve-mobile{
-  height: auto;
-    width: 100%;
-    position: absolute;
-    right: 0;
-    top: 1px;
-    -webkit-transform: translateY(-99%);
+  opacity: 0;
 }
 
+.radio_wrap::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: var(--tabWidth);
+  left: var(--left);
+  height: 100%;
+  background: #F04935;
+  transition: .3s ease-in-out;
+  border-radius: 2rem;
+}
 
+label {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  /* color: black; */
+  font-size: 16px;
+  transition: color .3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+}
+
+label:first-child {
+  width: 84px;
+}
+label:nth-child(2) {
+  width: 105px;
+}
+label:last-child {
+  width: 191px;
+}
+
+.panels {
+    @apply pt-6 lg:pt-14 w-full flex justify-center space-x-6 lg:space-x-10 overflow-hidden lg:overflow-visible
+}
+.panels .panel {
+  @apply h-[460px] w-[340px] overflow-hidden flex-shrink-0 rounded-3xl flex flex-col justify-center transform scale-100 duration-1000 transition-transform
+}
+.panel-content {
+    @apply px-5 py-6
+}
+.panel-content .title {
+    @apply text-white text-[45px] leading-[52px] font-semibold text-center transition-[text-align,font-size] duration-300
+ }
+.panel-content .description {
+    @apply text-white text-base mt-1 text-center transition-[text-align,font-size] duration-300
+ }
+
+.panel-hidden-content {
+    @apply shadow-[0_0_24px_rgba(116,19,9,0.3)] rounded-3xl px-5 py-6 space-y-6 transform translate-y-56 h-0 transition-[transform,height] duration-300
+}
+
+#radio1:checked ~ .panels #panel-one,
+#radio2:checked ~ .panels #panel-two,
+#radio3:checked ~ .panels #panel-three {
+    @apply lg:scale-110
+}
+
+#radio1:checked ~ .panels #panel-one .panel-content h5,
+#radio2:checked ~ .panels #panel-two .panel-content h5,
+#radio3:checked ~ .panels #panel-three .panel-content h5 {
+  @apply text-left text-xl
+}
+#radio1:checked ~ .panels #panel-one .panel-content p,
+#radio2:checked ~ .panels #panel-two .panel-content p,
+#radio3:checked ~ .panels #panel-three .panel-content p {
+    @apply text-left text-sm
+}
+
+#radio1:checked ~ .panels #panel-one .panel-hidden-content ,
+#radio2:checked ~ .panels #panel-two .panel-hidden-content ,
+#radio3:checked ~ .panels #panel-three .panel-hidden-content  {
+  @apply translate-y-0 h-full
+}
 </style>
