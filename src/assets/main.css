@@ -3,3 +3,4 @@
 .custom-container {
     @apply w-full mx-auto px-4 md:px-10 lg:px-[60px] xl:px-[100px] 2xl:px-[200px]
   }
+
