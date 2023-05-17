@@ -1,5 +1,5 @@
 <template>
-  <OurProductsSection />
+  <!-- <OurProductsSection /> -->
   <ProgressSliderVue />
   <!-- <ReadMoreAboutUs /> -->
 </template>
