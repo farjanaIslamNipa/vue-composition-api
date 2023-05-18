@@ -159,17 +159,12 @@ onMounted(() => {
 
       <div class="mt-20 mx-6">
         <div class="progress-bar relative h-4 w-full bg-[#FDE5E2] rounded-[15px]">
-          <div class="circle-wrap h-4 ">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+          <div class="circle-wrap flex h-4 ">
+            <div class="w-1/4"></div>
+            <div class="w-1/4"></div>
+            <div class="w-1/4"></div>
+            <div class="w-1/4"></div>
           </div>
-          <!-- <div class="year-indicator-wrapper">
-            <div class="w-1/4 bg-blue-400">
-              <div class="absolute top-[-60px] left-[-30px] bg-[#F04935] text-white rounded-full inline-block text-xl py-2 px-4 year-indicator-box">2019</div>
-            </div>
-          </div> -->
           <div class="color-bar"></div>
         </div>
       </div>
@@ -181,6 +176,37 @@ onMounted(() => {
 <style scoped>
 :root {
   --progressbar-width: 0%;
+}
+.circle-wrap div {
+  position: relative;
+  z-index: 2;
+  transition: color .3s ease-in-out;
+}
+
+.circle-wrap div:first-child::before, 
+.circle-wrap div:nth-child(2)::before, 
+.circle-wrap div:nth-child(3)::before, 
+.circle-wrap div:last-child::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #d1170356;
+  transition: .3s ease-in-out;
+  border-radius: 2rem;
+  height: 16px;
+  width: 16px;
+  right: 0;
+}
+.circle-wrap div:first-child::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: #F04935;
+  transition: .3s ease-in-out;
+  border-radius: 2rem;
+  height: 16px;
+  width: 16px;
+  left: 0;
 }
 .change-color::before{
   content: "";
@@ -194,52 +220,8 @@ onMounted(() => {
   right: 0;
   background-color: #D42410 !important;
 }
-.circle-wrap{
-  overflow: hidden;
-  z-index: 0;
-  display: flex;
-  justify-content: center;
-}
 
-.circle-wrap div:first-child::before, .circle-wrap div:nth-child(2)::before, .circle-wrap div:nth-child(3)::before, .circle-wrap div:last-child::before{
-  content: "";
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  background: #d1170356;
-  transition: .3s ease-in-out;
-  border-radius: 2rem;
-  height: 16px;
-  width: 16px;
-  right: 0;
-}
-.circle-wrap div:first-child::after{
-  content: "";
-  position: absolute;
-  z-index: -1;
-  height: 100%;
-  background: #F04935;
-  transition: .3s ease-in-out;
-  border-radius: 2rem;
-  height: 16px;
-  width: 16px;
-  left: 0;
-}
-
-.circle-wrap div:first-child, .circle-wrap div:nth-child(2), .circle-wrap div:nth-child(3), .circle-wrap div:last-child {
-  width: 25%;
-}
-
-.circle-wrap div {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  transition: color .3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2rem;
-}
+/* ------------------------------ */
 
 * {
     font-family: 'Inter', sans-serif;
