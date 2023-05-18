@@ -76,20 +76,40 @@ const slidePrev = () => {
 
 onMounted(() => {
   swiperCarousel.value.on('slideNextTransitionEnd',()=>{
-  let progressBarFill = document.querySelector('.color1');
-  let progressBarWidth = swiperIndex.value += 1
-  if(progressBarWidth <= 4){
-    progressBarFill.style.width = `${(25 * progressBarWidth)}%`
-  }
+    let progressBarFill = document.querySelector('.color-bar');
+    let progressBarWidth = swiperIndex.value += 1
+    if(progressBarWidth <= 4){
+      progressBarFill.style.width = `${(25 * progressBarWidth)}%`
+      
+    }
+    let nodeElement = document.getElementsByClassName('circle-wrap')[0]
+    let circle = nodeElement.children[progressBarWidth - 1]
+    circle.classList.add('change-color')
 
+    let yearIndicatorBox = document.querySelector('.year-indicator-box');
+    if(swiperIndex.value === 1){
+      yearIndicatorBox.style.left = '21.9%'
+    }
+    if(swiperIndex.value === 2){
+      yearIndicatorBox.style.left = '46.9%'
+    }
+    if(swiperIndex.value === 3){
+      yearIndicatorBox.style.left = '71.9%'
+    }
+    if(swiperIndex.value === 4){
+      yearIndicatorBox.style.left = '96.9%'
+    }
   });
 
   swiperCarousel.value.on('slidePrevTransitionEnd',()=>{
-    let progressBarFill = document.querySelector('.color1');
+    let progressBarFill = document.querySelector('.color-bar');
     let progressBarWidth = swiperIndex.value -= 1
     if(progressBarWidth >= 0 && progressBarWidth <= 4){
       progressBarFill.style.width = `${(25 * progressBarWidth)}%`
     }
+    let nodeElement = document.getElementsByClassName('circle-wrap')[0]
+    let circle = nodeElement.children[progressBarWidth]
+    circle.classList.remove('change-color')
   });
 })
 
@@ -114,38 +134,43 @@ onMounted(() => {
           </div>
         </div>
           <div class="mb-0 lg:mb-[48px] counter-section">
-              <div class="full-width">
-                <swiper
-                  :modules="modules"
-                  @swiper="onSwiper"
-                  class="mySwiper"
-                >
-                  <swiper-slide v-for="slider in readMoreSlider" :key="slider.id" class="h-auto">
-                    <div class="flex flex-col justify-between min-h-[342px] bg-white rounded-2xl py-4 px-4 h-full">
-                      <div>
-                        <div class="flex justify-center mb-4 slider-img">
-                          <img class="rounded-2xl" :src="slider.img" alt="Feature Slider">
-                        </div>
-                        <p class="text-[#4D4D4F] text-sm leading-5 font-medium mb-2">{{ slider.publishedAt }}</p>
-                        <h3 class="text-dark font-medium text-[20px] leading-7">{{ slider.title }}</h3>
+            <div class="full-width">
+              <swiper
+                :modules="modules"
+                @swiper="onSwiper"
+                class="mySwiper"
+              >
+                <swiper-slide v-for="slider in readMoreSlider" :key="slider.id" class="h-auto">
+                  <div class="flex flex-col justify-between min-h-[342px] bg-white rounded-2xl py-4 px-4 h-full">
+                    <div>
+                      <div class="flex justify-center mb-4 slider-img">
+                        <img class="rounded-2xl" :src="slider.img" alt="Feature Slider">
                       </div>
-                      <div>
-                      </div>
+                      <p class="text-[#4D4D4F] text-sm leading-5 font-medium mb-2">{{ slider.publishedAt }}</p>
+                      <h3 class="text-dark font-medium text-[20px] leading-7">{{ slider.title }}</h3>
                     </div>
-                  </swiper-slide>
-                </swiper>
-              </div>
+                    <div>
+                    </div>
+                  </div>
+                </swiper-slide>
+              </swiper>
+            </div>
           </div>
 
-      <div class="mt-8 flex items-center">
-        <div class="progress">
-          <div class="circle-wrap">
+      <div class="mt-20 mx-6">
+        <div class="progress-bar relative h-4 w-full bg-[#FDE5E2] rounded-[15px]">
+          <div class="circle-wrap h-4 ">
             <div></div>
             <div></div>
             <div></div>
             <div></div>
           </div>
-          <div class="color1"></div>
+          <!-- <div class="year-indicator-wrapper">
+            <div class="w-1/4 bg-blue-400">
+              <div class="absolute top-[-60px] left-[-30px] bg-[#F04935] text-white rounded-full inline-block text-xl py-2 px-4 year-indicator-box">2019</div>
+            </div>
+          </div> -->
+          <div class="color-bar"></div>
         </div>
       </div>
       </div>
@@ -157,15 +182,19 @@ onMounted(() => {
 :root {
   --progressbar-width: 0%;
 }
-.progress-circle{
+.change-color::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  transition: .3s ease-in-out;
+  border-radius: 2rem;
   height: 16px;
   width: 16px;
-  border-radius: 50%;
-  background-color: #F7A299;
+  right: 0;
+  background-color: #D42410 !important;
 }
 .circle-wrap{
-  height: 16px;
-  position: relative;
   overflow: hidden;
   z-index: 0;
   display: flex;
@@ -189,7 +218,7 @@ onMounted(() => {
   position: absolute;
   z-index: -1;
   height: 100%;
-  background: #d1170356;
+  background: #F04935;
   transition: .3s ease-in-out;
   border-radius: 2rem;
   height: 16px;
@@ -209,10 +238,6 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 16px;
-  width: 16px;
-  cursor: pointer;
-  background: #F04935; */
   border-radius: 2rem;
 }
 
@@ -229,38 +254,30 @@ onMounted(() => {
   object-fit: cover;
 }
 
-.progress{
-    position: relative;
-    height: 16px;
-    width: 100%;
-    background-color: #FDE5E2;
-    border-radius: 15px;
-}
-.color1, .color2, .color3, .color4{
+.color-bar{
     position: absolute;
-    background-color: #d1170356;
+    background-color: rgba(240, 73, 53, 0.7);
     width: 16px;
     height: 16px;
     border-radius: 15px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     top: 0;
     /* animation: progres 4s linear;     */
 }
-@keyframes progres{
-    0%{
-      width: 0%;
-    }
-    25%{
-        width: 50%;
-    }
-    50%{
-        width: 75%;
-    }
-    75%{
-        width: 85%;
-    }
-    100%{
-        width: 100%;
-    }
-};
+.year-indicator-box{
+  transition: all 0.3s ease;
+}
+.year-indicator-box::before{
+  content: "";
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #F04935;
+    left: 50px;
+    position: absolute;
+    left: 29px;
+    top: 44px;
+    transition: all 0.3s ease;
+}
 </style>
