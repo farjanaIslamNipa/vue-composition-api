@@ -192,60 +192,12 @@ onMounted(() => {
 :root {
   --progressbar-width: 0%;
 }
-/* .year-progress-wrap div {
-  position: relative;
-  z-index: 2;
-  transition: color .3s ease-in-out;
-}
 
-.year-progress-wrap::before{
-  content: "2019";
-  padding: 8px 16px;
-  color: white;
-  position: absolute;
-  z-index: -1;
-  background: #F04935;
-  transition: .3s ease-in-out;
-  border-radius: 2rem;
-  right: -25px;
-  top: -45px;
-
-} */
-/* .year-progress-wrap div:first-child::after{
-  content: "2019";
-  color: white;
-  padding: 8px 16px;
-  color: white;
-  position: absolute;
-  z-index: -1;
-  background: #F04935;
-  transition: .3s ease-in-out;
-  border-radius: 2rem;
-  left: -20px;
-  top: -45px;
-} */
 .year-progress{
 width: 90px;
 transition: all 0.2s ease;
 margin-left: -15px;
 }
-
-/* .year-progress-bar {
-  transition: all 0.2s ease;
-}
-.year-progress-bar::before{
-  content: "";
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #F04935;
-    left: 50px;
-    position: absolute;
-    left: 24px;
-    top: 40px;
-    transition: all 0.3s ease;
-} */
 
 .circle-wrap div {
   position: relative;
