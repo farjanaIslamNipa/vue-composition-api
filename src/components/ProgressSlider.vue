@@ -3,9 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { FreeMode} from 'swiper';
-import { computed, onMounted, ref } from 'vue';
-const modules = [FreeMode];
+import "swiper/css/effect-fade";
+import { FreeMode, Navigation, EffectFade} from 'swiper';
+import { onMounted, ref } from 'vue';
+const modules = [FreeMode, Navigation, EffectFade];
 
 const readMoreSlider = ref([
   {
@@ -45,8 +46,7 @@ const readMoreSlider = ref([
   }
 ]);
 
-const firstElement = ref(false);
-const lastElement = ref(false);
+
 const swiperIndex = ref(0);
 const progressYear = ref(2019)
 
@@ -55,25 +55,7 @@ const swiperCarousel = ref(true)
 const onSwiper = (swiper) => {
     swiperCarousel.value = swiper
     swiperIndex.value = swiper.activeIndex
-    console.log(swiper, 'swiper');
-
   };
-
-const slideNext = () => {
-  swiperCarousel.value.slideTo(swiperCarousel.value.realIndex + 1)
-  if(swiperCarousel.value.isEnd === true){
-    lastElement.value = true
-    firstElement.value = false
-  }
-}
-const slidePrev = () => {
-  swiperCarousel.value.slideTo(swiperCarousel.value.realIndex - 1)
-  if(swiperCarousel.value.realIndex === 0){
-    firstElement.value = true
-    lastElement.value = false
-  }
-
-}
 
 onMounted(() => {
   swiperCarousel.value.on('slideNextTransitionEnd',()=>{
@@ -117,42 +99,29 @@ onMounted(() => {
 })
 
 </script>
-<template>
-    <div class="bg-[#F7F7F7]">
-      <div class="custom-container py-10">
-        <div class="flex justify-between items-center lg:items-end mb-[22px] md:mb-8">
-          <div>
-          <h1 class="text-center text-2xl">{{ swiperIndex }}</h1>
-            <h2 class="text-[28px] lg:text-[57px] text-dark font-semibold leading-9 lg:leading-[64px]">Read more about us</h2>
-          </div>
-          <div>
-            <div class="flex gap-6 lg:gap-8 items-center">
-              <button @click="slidePrev" class="h-[46px] lg:h-[60px] w-[46px] lg:w-[60px] flex justify-center items-center border border-[#DBDBDB] rounded-full">
-                <img :class="firstElement ? 'opacity-30' : 'opacity-100'" class="h-[20px] w-[21px]" src="./assets/images/svg/arrow-prev.svg" alt="Previous Arrow">
-              </button>
-              <button @click="slideNext" class="h-[46px] lg:h-[60px] w-[46px] lg:w-[60px] flex justify-center items-center border border-[#DBDBDB] rounded-full">
-                <img :class="lastElement ? 'opacity-30' : 'opacity-100'" class="h-[20px] w-[21px]" src="./assets/images/svg/arrow-next.svg" alt="Previous Arrow">
-              </button>
-            </div>
-          </div>
-        </div>
-          <div class="mb-0 lg:mb-[48px] counter-section">
-            <div class="full-width">
+<template> 
+    <div class="bg-[#082743] py-[60px] text-white relative overflow-hidden custom-swiper-slider">
+      <div class="custom-container">
+        <h1 class="text-4xl font-medium leading-[44px]">A bumpy <br>yet enjoyable ride</h1>
+          <div class="mt-14">
+            <div class="">
               <swiper
+                :effect="'fade'"
+                :navigation="true"
+                :freeMode="true"
                 :modules="modules"
                 @swiper="onSwiper"
                 class="mySwiper"
               >
                 <swiper-slide v-for="slider in readMoreSlider" :key="slider.id" class="h-auto">
-                  <div class="flex flex-col justify-between min-h-[342px] bg-white rounded-2xl py-4 px-4 h-full">
+                  <div class="flex justify-between h-full">
                     <div>
-                      <div class="flex justify-center mb-4 slider-img">
-                        <img class="rounded-2xl" :src="slider.img" alt="Feature Slider">
-                      </div>
-                      <p class="text-[#4D4D4F] text-sm leading-5 font-medium mb-2">{{ slider.publishedAt }}</p>
-                      <h3 class="text-dark font-medium text-[20px] leading-7">{{ slider.title }}</h3>
+                      <p class="">'19</p>
                     </div>
                     <div>
+                    <div>
+                      <img src="/images/slider-1.png" alt="Journey of Jatri">
+                    </div>
                     </div>
                   </div>
                 </swiper-slide>
@@ -188,14 +157,15 @@ onMounted(() => {
     </div>
 </template>
 
-<style scoped>
+<style>
+
 :root {
   --progressbar-width: 0%;
 }
 
 .year-progress{
 width: 90px;
-transition: all 0.2s ease;
+transition: all 0.3s ease;
 margin-left: -15px;
 }
 
@@ -214,6 +184,7 @@ margin-left: -15px;
   z-index: -1;
   background: #d1170356;
   transition: .3s ease-in-out;
+  transition-duration: 0ms;
   border-radius: 2rem;
   height: 16px;
   width: 16px;
@@ -225,6 +196,7 @@ margin-left: -15px;
   z-index: -1;
   background: #F04935;
   transition: .3s ease-in-out;
+  transition-duration: 0ms;
   border-radius: 2rem;
   height: 16px;
   width: 16px;
@@ -236,6 +208,7 @@ margin-left: -15px;
   z-index: -1;
   height: 100%;
   transition: .3s ease-in-out;
+  transition-duration: 0ms;
   border-radius: 2rem;
   height: 16px;
   width: 16px;
@@ -264,9 +237,9 @@ margin-left: -15px;
     width: 16px;
     height: 16px;
     border-radius: 15px;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    transition-duration: 0ms;
     top: 0;
-    /* animation: progres 4s linear;     */
 }
 
 </style>
