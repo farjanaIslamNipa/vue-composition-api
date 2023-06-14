@@ -11,38 +11,38 @@ const modules = [FreeMode, Navigation, EffectFade];
 const readMoreSlider = ref([
   {
     id: 1,
+    year: 19,
     img:'/images/read-more-slide-1.svg',
     title:'London Express and Jatri Ticket Website are Together Now!',
-    publishedAt: '12 Feb 2023',
-    link: 'https://www.techinasia.com/jatri-pre-series-a-funding'
+    details: 'Lorem ipsum dolor sit amet consectetur. Sodales vel sollicitudin at faucibus. Imperdiet semper venenatis sem iaculis. Vitae justo nulla justo faucibus.'
   },
   {
     id: 2,
+    year: 20,
     img:'/images/read-more-slide-2.svg',
     title:'Jeddah Express Jatri Ticket Website and are Together Now!',
-    publishedAt: '12 Feb 2023',
-    link: 'https://www.thedailystar.net/business/news/bus-owners-announce-jatri-dhakas-e-ticketing-partner-3170171'
+    details: 'Lorem ipsum dolor sit amet consectetur. Sodales vel sollicitudin at faucibus. Imperdiet semper venenatis sem iaculis. Vitae justo nulla justo faucibus.'
   },
   {
     id: 3,
+    year: 21,
     img:'/images/read-more-slide-3.svg',
     title:'Green Line Jatri Ticket Website and Jeddah Express are Together Now!',
-    publishedAt: '12 Feb 2023',
-    link: 'https://today.thefinancialexpress.com.bd/metro-news/e-ticketing-for-all-mirpur-route-buses-from-today-1668268482?amp=true'
+    details: 'Lorem ipsum dolor sit amet consectetur. Sodales vel sollicitudin at faucibus. Imperdiet semper venenatis sem iaculis. Vitae justo nulla justo faucibus.'
   },
   {
     id: 4,
+    year: 22,
     img:'/images/read-more-slide-4.png',
     title:'যাত্রী পার্টনার অ্যাপ: রেন্ট-এ-কার ব্যবসা খাতে নতুন সংযোজন !',
-    publishedAt: '12 Feb 2023',
-    link: 'https://www.dhakatribune.com/business/2023/01/10/bus-owners-association-and-jatri-to-bring-more-bus-companies-under-e-ticketing-system'
+    details: 'Lorem ipsum dolor sit amet consectetur. Sodales vel sollicitudin at faucibus. Imperdiet semper venenatis sem iaculis. Vitae justo nulla justo faucibus.'
   },
   {
     id: 5,
+    year: 23,
     img:'/images/read-more-slide-2.svg',
     title:'Jeddah Express Jatri Ticket Website and are Together Now!',
-    publishedAt: '12 Feb 2023',
-    link: 'https://www.thedailystar.net/business/news/bus-owners-announce-jatri-dhakas-e-ticketing-partner-3170171'
+    details: 'Lorem ipsum dolor sit amet consectetur. Sodales vel sollicitudin at faucibus. Imperdiet semper venenatis sem iaculis. Vitae justo nulla justo faucibus.'
   }
 ]);
 
@@ -107,29 +107,32 @@ onMounted(() => {
             <div class="">
               <swiper
                 :effect="'fade'"
+                :spaceBetween="30"
                 :navigation="true"
-                :freeMode="true"
                 :modules="modules"
                 @swiper="onSwiper"
                 class="mySwiper"
               >
-                <swiper-slide v-for="slider in readMoreSlider" :key="slider.id" class="h-auto">
-                  <div class="flex justify-between h-full">
-                    <div>
-                      <p class="">'19</p>
+                <swiper-slide v-for="slider in readMoreSlider" :key="slider.id" class="h-auto bg-[#082743]">
+                sfds;lfksd
+                  <!-- <div class="block md:flex md:gap-4 lg:gap-0 justify-between items-center h-full">
+                    <div class="w-full lg:w-1/2 2xl:w-1/3">
+                      <p class="text-[57px] font-semibold">'{{ slider.year }}</p>
+                      <p class="text-2xl py-4 font-medium">{{ slider.title }}</p>
+                      <p class="text-base">{{ slider.details }}</p>
                     </div>
-                    <div>
-                    <div>
-                      <img src="/images/slider-1.png" alt="Journey of Jatri">
+                    <div class="flex justify-center md:mt-0 mt-6">
+                      <div class="h-[260px] w-[260px] rounded-full object-cover bg-gray-300">
+                        <img class="h-full w-full rounded-full" :src="slider.img" alt="Journey of Jatri">
+                      </div>
                     </div>
-                    </div>
-                  </div>
+                  </div> -->
                 </swiper-slide>
               </swiper>
             </div>
           </div>
 
-      <div class="mt-20 relative">
+      <div class="mt-8 md:mt-15 relative">
         <div class="year-progress-wrap">
           <div class="year-progress flex justify-end">
             <div>

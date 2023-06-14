@@ -9,17 +9,17 @@
 
   .custom-swiper-slider .swiper-button-prev,
   .custom-swiper-slider .swiper-button-next {
-    @apply -top-[48px] lg:-top-[65px] border border-[#DBDBDB] w-[46px] lg:w-[60px] h-[46px] lg:h-[60px] rounded-full
+    @apply -top-[94px] border border-[#DBDBDB] w-[46px] lg:w-[60px] h-[46px] lg:h-[60px] rounded-full
   }
   .custom-swiper-slider .swiper-button-prev,
   .custom-swiper-slider .swiper-button-next {
     @apply  border border-[#DBDBDB] w-[46px] lg:w-[60px] h-[46px] lg:h-[60px] rounded-full
   }
   .custom-swiper-slider .swiper-button-prev {
-    @apply left-auto right-[85px] md:right-[118px] lg:right-[150px] xl:right-[190px] 2xl:right-[290px]
+    @apply left-auto right-[92px]
   }
   .custom-swiper-slider .swiper-button-next {
-    @apply left-auto right-[18px] md:right-12 lg:right-[60px] xl:right-[100px] 2xl:right-[200px]
+    @apply left-auto right-0
   }
   .custom-swiper-slider .swiper-button-prev:after,
   .custom-swiper-slider .swiper-button-next:after {
@@ -33,4 +33,8 @@
 .read-more-swiper-slider .swiper-button-prev,
 .read-more-swiper-slider .swiper-button-next {
   @apply -top-[60px] sm:-top-[40px] lg:-top-[100px]
+}
+
+.swiper-slide  {
+  transition-duration: 300ms !important;
 }
