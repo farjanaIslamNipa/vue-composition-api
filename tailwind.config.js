@@ -16,7 +16,7 @@ module.exports = {
         success: '#48A43F',
         danger: '#EE3420',
         body: '#747476',
-        appBlue: '#85bdff',
+        appBlue: '#589ff3',
         lightBlue: '#90c6ff',
         appPurple: '#707efb',
         lightPurple: '#8897fd',
