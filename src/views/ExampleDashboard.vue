@@ -3,14 +3,22 @@
   <header class="fixed right-0 top-0 left-60 bg-white py-3 px-4 h-16">
     <div class="">
       <div class="flex items-center justify-between">
-        <div>
-          <button type="button" class="flex items-center focus:outline-none rounded-lg text-gray-600 font-semibold p-2 border border-transparent transition">
-            <span class="inline-flex items-center justify-center w-6 h-6 text-gray-600 text-xs rounded bg-white transition mr-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        <div class="flex gap-2">
+          <button style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" type="button" class="flex items-center focus:outline-none border border-gray-400 rounded-2xl text-gray-600 font-semibold py-[2px] px-1 transition">
+            <div class="border bg-gray-600 rounded-3xl p-[2px]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="white" class="w-3 h-3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
               </svg>
-            </span>
-            <span class="text-sm">Archive</span>
+            </div>
+
+            <span class="text-sm inline-block pl-1 pr-1 font-bold">Back to list</span>
+          </button>
+          <button style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" type="button" class="flex items-center focus:outline-none rounded-lg text-gray-600 font-semibold py-1 px-3 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+
+            <span class="text-sm inline-block pl-1 font-bold">Back to list</span>
           </button>
         </div>
         <div class="text-lg font-bold">Today's Plan</div>
@@ -22,13 +30,7 @@
 
             <span class="text-sm inline-block pl-1 ">Back</span>
           </button> -->
-          <button style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" type="button" class="bg-[#FEF9C3] flex items-center focus:outline-none rounded-lg text-gray-600 font-semibold py-1 px-3 border border-transparent hover:border-yellow-300 focus:border-yellow-300 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" class="w-4 h-4">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
 
-            <span class="text-sm inline-block pl-1 font-bold">Back</span>
-          </button>
         </div>
       </div>
     </div>
@@ -123,6 +125,11 @@
         <div class="bg-white rounded-3xl p-3 mb-5">
 <!-- component -->
 <div class="table w-full p-2">
+  <div class="flex gap-2">
+    <button class="text-sm inline-block rounded-md text-purple-800 font-semibold bg-purple-100 min-w-[95px] py-1">Create plan</button>
+    <button class="text-sm inline-block rounded-md text-green-800 font-semibold bg-[#DCFCE7] min-w-[95px] py-1">Create Fare</button>
+    <button class="text-sm inline-block rounded-md text-yellow-800 font-semibold bg-[#FEF9C3] min-w-[95px] py-1">Create Fare</button>
+  </div>
         <table class="w-full border">
             <thead>
                 <tr class="bg-gray-50 border-b">
@@ -246,9 +253,26 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+          </div>
         </div>
       </div>
+
+      <!-- -------------------------------------------------------------- -->
+
+      <div class="my-6 bg-white p-3 rounded-xl rounded-b-none flex justify-between items-center">
+        <h3 class="uppercase text-base font-medium">company information</h3>
+        <div>
+          <button style="box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;" type="button" class="bg-blue-50 flex items-center focus:outline-none rounded-lg text-gray-600 font-semibold py-1 px-3 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            <span class="text-sm inline-block pl-1 font-bold">Back</span>
+          </button>
+        </div>
+      </div>
+      <!-- <div class="slider">
+        <div class="slider-row"></div>
+      </div> -->
     </div>
   </main>
 </div>
@@ -259,5 +283,22 @@
 </script>
 
 <style scoped>
+.slider {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-row {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/111863/ubiquity-summit-web-01.png);
+    animation: slide 25s linear infinite;
+  }
+
+@keyframes slide {
+  from { background-position-x: 0; }
+  to   { background-position-x: -3300px; }
+}
 
 </style>
