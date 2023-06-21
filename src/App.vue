@@ -1,11 +1,14 @@
 <template>
   <!-- <OurProductsSection /> -->
   <!-- <ProgressSliderVue /> -->
-<ExampleDashboard />
+<!-- <ExampleDashboard /> -->
+<CareerHeader />
 </template>
 
 <script setup>
-import ExampleDashboard from './views/ExampleDashboard.vue';
+import CareerHeader from './components/CareerHeader.vue';
+
+// import ExampleDashboard from './views/ExampleDashboard.vue';
 
 </script>
 
