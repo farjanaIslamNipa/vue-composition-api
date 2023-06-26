@@ -1,8 +1,6 @@
 <template>
-  <!-- <OurProductsSection /> -->
-  <!-- <ProgressSliderVue /> -->
 <!-- <ExampleDashboard /> -->
-<CareerHeader />
+    <CareerHeader />
 </template>
 
 <script setup>

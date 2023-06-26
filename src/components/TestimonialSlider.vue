@@ -117,7 +117,6 @@ const startInterval = () => {
   autoSlideInterVal.value = setInterval(() => {
     nextSlide()
   }, 3000)
-  // console.log("start--->", autoSlideInterVal.value)
 }
 
 onMounted(() => {
@@ -137,26 +136,6 @@ onUnmounted(() => clearInterval(autoSlideInterVal.value))
 </script>
 
 <style scoped>
-
-.testimonial-slider-item {
-  @apply w-[348px] lg:w-[400px] rounded-3xl p-6 xl:p-8 flex flex-col justify-between flex-shrink-0 gap-8 xl:gap-10
-}
-/* .testimonial-slider-item:first-child {
-  @apply bg-[#FEF2F0]
-}
-.testimonial-slider-item:nth-child(2) {
-  @apply bg-[#EFF7FD]
-}
-.testimonial-slider-item:nth-child(3) {
-  @apply bg-[#F1F9F1]
-}
-.testimonial-slider-item:nth-child(4) {
-  @apply bg-[#F2F0FE]
-}
-.testimonial-slider-item:last-child {
-  @apply bg-[#F1F9F1]
-} */
-
 .slide-enter {
   opacity: 0;
 }
@@ -194,7 +173,6 @@ onUnmounted(() => clearInterval(autoSlideInterVal.value))
   from {
     transform: scale(1);
     opacity: 80%;
-
   }
 
   to {
@@ -202,4 +180,22 @@ onUnmounted(() => clearInterval(autoSlideInterVal.value))
     transform: scale(.8);
   }
 }
+.testimonial-slider-item {
+  @apply w-[348px] lg:w-[400px] rounded-3xl p-6 xl:p-8 flex flex-col justify-between flex-shrink-0 gap-8 xl:gap-10
+}
+/* .testimonial-slider-item:first-child {
+  @apply bg-[#FEF2F0]
+}
+.testimonial-slider-item:nth-child(2) {
+  @apply bg-[#EFF7FD]
+}
+.testimonial-slider-item:nth-child(3) {
+  @apply bg-[#F1F9F1]
+}
+.testimonial-slider-item:nth-child(4) {
+  @apply bg-[#F2F0FE]
+}
+.testimonial-slider-item:last-child {
+  @apply bg-[#F1F9F1]
+} */
 </style>
