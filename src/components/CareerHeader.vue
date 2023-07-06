@@ -33,9 +33,6 @@ import careerData from '../data/career.js';
 console.log(careerData, 'value');
 const openedRoles = ref([])
 
-// onMounted(() => {
-//     openedRoles.value = careerData
-// })
 openedRoles.value = careerData
 
 </script>
