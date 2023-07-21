@@ -1,21 +1,27 @@
 <template>
-    <div class="container mx-auto mt-10">
-        This is pop up <br>
-        <button @click="showPopup = true" class="border p-4">Open Popup</button>
-        <Popup v-show="showPopup" @close="closePopup" />
+    <div class="container mx-auto mt-10 text-center">
+        <button @click="loadPosts" class="border py-2 font-semibold px-5 bg-sky-700 text-white rounded-md">Load posts</button>
+        <div v-for="post in posts" :key="post.id" class="text-start">
+            <h3 class="font-medium text-2xl">{{ post.title }}</h3>
+        </div>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import Popup from './components/Popup.vue';
+import axios from "axios";
 
-const showPopup = ref(false)
+const posts = ref([])
 
-const closePopup = (name) => {
-    showPopup.value = false
-    console.log(name, 'emit')
+const loadPosts = () => {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+        .then(res => {
+            posts.value = res.data
+            console.log(res.data, 'data')
+        })  
+        .catch(err => console.log(err)) 
 }
+
 </script>
 
 <style scoped>
