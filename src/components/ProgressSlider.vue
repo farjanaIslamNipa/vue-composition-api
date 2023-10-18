@@ -57,6 +57,8 @@ const onSwiper = (swiper) => {
     swiperIndex.value = swiper.activeIndex
   };
 
+
+
 onMounted(() => {
   swiperCarousel.value.on('slideNextTransitionEnd',()=>{
     let progressBarFill = document.querySelector('.fill-color-bar');

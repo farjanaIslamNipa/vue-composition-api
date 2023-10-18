@@ -15,11 +15,14 @@
             <h3 class="font-medium text-2xl">{{ post.title }}</h3>
         </div>
     </div>
+
+    <ProgressSlider />
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import axios from "axios";
+import ProgressSlider from './components/ProgressSlider.vue';
 
 const posts = ref([])
 const formData = ref({
